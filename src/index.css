@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap');
+
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: 'Open Sans', sans-serif;
+  overflow-x: hidden;
+  background: #0D0D0F !important;
+}
+a{
+  text-decoration: none !important;
+}
+li{
+  list-style: none;
+}
+
+
+.navbar{
+  background-color: #161616 !important;
+}
+
+
+#search-box:focus{
+  outline: 2px solid #00CE79 !important;
+outline: none;
+}
+
+.movie-card{
+  transition: all .3s ease-in-out;
+}
+.movie-card:hover{
+  transform: scale(1.02);
+  box-shadow: 10px 10px 10px rgba(0,0,0,.1);
+}
+
+#badge{
+  /* background-color:#222222 !important; */
+  /* background-color:#00CE79 !important;
+  color:black; */
+}
+
+
+@media screen and (max-width:800px) {
+  #movie-info{
+    flex-direction: column;
+  }
+}

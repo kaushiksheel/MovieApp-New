@@ -50,3 +50,43 @@ outline: none;
     flex-direction: column;
   }
 }
+
+.paginate{
+  display:flex;
+  gap: 0 12px;
+  color: white;
+}
+
+.paginate>li{
+  background-color: #252525;
+  font-size: 18px;
+  padding: .3em .6em;
+  border-radius: 5px;
+  transition: all .2s linear;
+}
+
+.paginate>li:hover{
+  background-color: #00CE79;
+  color: black;
+}
+
+.selected{
+  background-color:#00CE79  !important;
+  color: black;
+}
+
+.paginate > .previous>a{
+  color: white ;
+}
+.paginate > .next>a{
+  color: white ;
+  
+}
+.paginate > .previous>a:hover{
+  color: black ;
+}
+.paginate > .next>a:hover{
+  color: black ;
+}
+
+

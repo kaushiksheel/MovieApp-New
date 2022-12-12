@@ -3,10 +3,11 @@ import { Col, Container, Row } from 'react-bootstrap'
 import { Genre } from '../components/Genre'
 import { MovieCard } from '../components/MovieCard'
 import NavComp from '../components/Navbar'
+import { PaginationComp } from '../components/PaginationComp'
 import { MovieContext } from '../context/MovieContext'
 
 export default function Movies() {
-  const {movies,movieGenres,handleGenres}=useContext(MovieContext);
+  const {movies,movieGenres,handleGenres,latestTotalPages}=useContext(MovieContext);
 
   
 
@@ -35,6 +36,11 @@ export default function Movies() {
     )}
       
       </Row>
+        </div>
+        <div className="mt-5 d-flex justify-content-center">
+          <PaginationComp
+          totalPages={latestTotalPages}
+          />
         </div>
       </Container>
     

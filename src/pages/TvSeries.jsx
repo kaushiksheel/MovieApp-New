@@ -2,11 +2,12 @@ import React, { useContext } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { Genre } from "../components/Genre";
 import NavComp from "../components/Navbar";
+import { PaginationComp } from "../components/PaginationComp";
 import { TVCard } from "../components/TvCard";
 import { MovieContext } from "../context/MovieContext";
 
 export default function TvSeries() {
-  const { tvShows, tvGenres,handleTvGenres } = useContext(MovieContext);
+  const { tvShows, tvGenres,handleTvGenres,tvTotalPages } = useContext(MovieContext);
   return (
     <>
       <NavComp />
@@ -27,6 +28,11 @@ export default function TvSeries() {
               </Col>
             ))}
           </Row>
+        </div>
+          <div className="mt-5 d-flex justify-content-center">
+          <PaginationComp
+          totalPages={tvTotalPages}
+          />
         </div>
       </Container>
     </>

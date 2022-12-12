@@ -2,11 +2,12 @@ import React, { useContext } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import { MovieCard } from '../components/MovieCard'
 import NavComp from '../components/Navbar'
+import { PaginationComp } from '../components/PaginationComp'
 import { MovieContext } from '../context/MovieContext'
 
 
 export default function Home() {
-const {trendings}=useContext(MovieContext)
+const {trendings,trendingTotalPages}=useContext(MovieContext)
 
   return (
     <>
@@ -20,8 +21,10 @@ const {trendings}=useContext(MovieContext)
     )}
       
       </Row>
+      <div className="mt-5 d-flex justify-content-center">
+    <PaginationComp totalPages={trendingTotalPages}/>
+      </div>
       </Container>
-    
     
     </>
   )

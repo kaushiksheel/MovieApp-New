@@ -18,16 +18,22 @@ export const MovieContextProvider = ({ children }) => {
   const [tvShows, setTvShows] = useState([]);
   const [movieGenres, setMovieGenres] = useState([]);
   const [tvGenres, setTVGenres] = useState([]);
-
+  const [trendingTotalPages, setTrendingTotalPages] = useState();
+  const [latestTotalPages, setLatestTotalPages] = useState();
+  const [tvTotalPages,setTvTotalPages] = useState();
+  const [currentPage, setCurrentPage] = useState(1);
 
   const fetchTrendings = async () => {
-    const { data: movies } = await fetchData(TRENDINGS);
+    const { data: movies } = await fetchData(TRENDINGS(currentPage));
     setTrendings(movies.results);
+    setTrendingTotalPages(movies.total_pages);
+    console.log(movies)
   };
 
   const fetchLatest = async () => {
-    const { data: movies } = await fetchData(LATEST);
+    const { data: movies } = await fetchData(LATEST(currentPage));
     setMovies(movies.results);
+    setLatestTotalPages(movies.total_pages);
   };
   const fetchGenres = async () => {
     const { data } = await fetchData(MOVIE_GENRES);
@@ -39,8 +45,9 @@ export const MovieContextProvider = ({ children }) => {
   };
 
   const fetchTvShows = async () => {
-    const { data } = await fetchData(TV_SHOWS);
+    const { data } = await fetchData(TV_SHOWS(currentPage));
     setTvShows(data.results);
+    setTvTotalPages(data.total_pages)
   };
 
   useEffect(() => {
@@ -49,7 +56,7 @@ export const MovieContextProvider = ({ children }) => {
     fetchGenres();
     fetchTvShows();
     fetchTvGenres();
-  }, []);
+  }, [currentPage]);
 
   const handleGenres = async (id) => {
     setMovieGenres(
@@ -91,6 +98,12 @@ export const MovieContextProvider = ({ children }) => {
         handleGenres,
         handleTvGenres,
         setMovies,
+        trendingTotalPages,
+        currentPage,
+        setCurrentPage,
+        setLatestTotalPages,
+        latestTotalPages,
+        tvTotalPages
       }}
     >
       {children}

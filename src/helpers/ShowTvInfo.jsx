@@ -11,8 +11,6 @@ import { VideoPlayerModal } from '../components/VideoPlayerModal';
 
 
 
-
-// 
 export default function ShowTvInfo() {
    const [modalShow, setModalShow] = useState(false);
   const[movieInfo,setMovieInfo]=useState();
@@ -34,11 +32,11 @@ const fetchMovieCast=async()=>{
   setMovieCast(data.cast)
 }
   
-console.log(movieCast)
+
 
 const fetchMovieVideoId=async()=>{
 const {data}=await axios.get(`https://api.themoviedb.org/3/tv/${movieId}/videos?api_key=${API_KEY}&language=en-US`)
-setMovieVideoId(data?.results[0].key)
+setMovieVideoId(data?.results[0]?.key)
 }
 
 useEffect(()=>{
@@ -63,7 +61,7 @@ useEffect(()=>{
       <Genre/>
     </div>
     <p style={{color:"#a5a5a5",marginTop:15,lineHeight:1.8}}>{movieInfo?.overview}</p>
-    <p style={{color:'#a5a5a5',fontWeight:"bold"}}>Release Date: {movieInfo?.release_date
+    <p style={{color:'#a5a5a5',fontWeight:"bold"}}>Release Date: {movieInfo?.first_air_date
 }</p>
     <button onClick={() => setModalShow(true)} style={{
       background:'#00CE79',

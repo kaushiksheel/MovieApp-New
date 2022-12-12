@@ -7,6 +7,7 @@ import NotFound from './pages/NotFound'
 import { MovieContextProvider } from './context/MovieContext';
 import { Loading } from './components/Loading';
 import ShowTvInfo from './helpers/ShowTvInfo';
+import Search from './pages/Search';
 
 
 const Home=lazy(()=>import('./pages/Home'))
@@ -27,6 +28,7 @@ export default function App() {
   <Route path='/' element={<Home/>}/>
   <Route path='/movies' element={<Movies/>}/>
   <Route path='/tv-series' element={<TvSeries/>}/>
+  <Route path='/search' element={<Search/>}/>
   <Route path='/:id' element={<ShowInfo/>}/>
   <Route path='/tv/:id' element={<ShowTvInfo/>}/>
   <Route path='*' element={<NotFound/>}/>

@@ -2,6 +2,8 @@ import axios from "axios";
 import { createContext, useEffect, useState } from "react";
 import {
   API_KEY,
+  FILTERED_MOVIES_WITH_GENRES,
+  FILTERED_TV_SHOWS_WITH_GENRES,
   LATEST,
   MOVIE_GENRES,
   TRENDINGS,
@@ -27,7 +29,6 @@ export const MovieContextProvider = ({ children }) => {
     const { data: movies } = await fetchData(TRENDINGS(currentPage));
     setTrendings(movies.results);
     setTrendingTotalPages(movies.total_pages);
-    console.log(movies)
   };
 
   const fetchLatest = async () => {
@@ -67,9 +68,7 @@ export const MovieContextProvider = ({ children }) => {
       )
     );
 
-    const { data } = await axios.get(
-      `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=${id}&with_watch_monetization_types=flatrate`
-    );
+    const { data } = await axios.get(FILTERED_MOVIES_WITH_GENRES(currentPage,id));
     setMovies(data.results);
   };
   const handleTvGenres = async (id) => {
@@ -81,9 +80,7 @@ export const MovieContextProvider = ({ children }) => {
       )
     );
 
-    const { data } = await axios.get(
-      `https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&page=1&timezone=America%2FNew_York&with_genres=${id}&include_null_first_air_dates=false&with_watch_monetization_types=flatrate&with_status=0&with_type=0`
-    );
+    const { data } = await axios.get(FILTERED_TV_SHOWS_WITH_GENRES(currentPage,id));
     setTvShows(data.results);
   };
 

@@ -102,7 +102,7 @@ useEffect(()=>{
       </div>
     </Container>
     <VideoPlayerModal
-    videoId={movieVideoId&&movieVideoId}
+    videoid={movieVideoId&&movieVideoId}
     title={movieInfo?.name}
         show={modalShow}
         onHide={() => setModalShow(false)}

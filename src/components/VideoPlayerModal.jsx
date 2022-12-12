@@ -20,8 +20,9 @@ export const VideoPlayerModal = (props) => {
       </Modal.Header>
       <Modal.Body style={{background:'#161616'}} >
       <ReactPlayer
+      
       width={'100%'}
-      playing controls url={`https://youtu.be/${props.videoId}`} />
+      playing controls url={`https://youtu.be/${props?.videoid}`} />
       </Modal.Body>
       <Modal.Footer style={{background:"#161616",border:'none'}}>
         <Button onClick={props.onHide}>Close</Button>

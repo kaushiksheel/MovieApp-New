@@ -49,6 +49,9 @@ outline: none;
   #movie-info{
     flex-direction: column;
   }
+  #form{
+    width: 100% !important;
+  }
 }
 
 .paginate{
@@ -93,3 +96,11 @@ outline: none;
 }
 
 
+
+
+.search-box{
+  background: #1e1e1e !important;
+  display: none;
+  border: none !important;
+  color: white !important;
+}

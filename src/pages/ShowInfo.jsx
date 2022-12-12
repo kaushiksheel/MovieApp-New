@@ -38,7 +38,7 @@ const fetchMovieCast=async()=>{
 
 const fetchMovieVideoId=async()=>{
 const {data}=await axios.get(`https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${API_KEY}&language=en-US`)
-setMovieVideoId(data?.results[0].key)
+setMovieVideoId(data?.results[0]?.key)
 }
 
 useEffect(()=>{
@@ -104,7 +104,7 @@ useEffect(()=>{
       </div>
     </Container>
     <VideoPlayerModal
-    videoId={movieVideoId&&movieVideoId}
+    videoid={movieVideoId&&movieVideoId}
     title={movieInfo?.title}
         show={modalShow}
         onHide={() => setModalShow(false)}

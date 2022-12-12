@@ -55,6 +55,9 @@ outline: none;
   display:flex;
   gap: 0 12px;
   color: white;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
 }
 
 .paginate>li{

@@ -1,12 +1,6 @@
 import React from "react";
-import { Button, Container, Form, Nav, Navbar } from "react-bootstrap";
-import {
-  FireIcon,
-  TvIcon,
-  FilmIcon,
-  MagnifyingGlassIcon,
-} from "@heroicons/react/24/outline";
-import { Link, useParams, useLocation } from "react-router-dom";
+import { Container, Nav, Navbar } from "react-bootstrap";
+import { Link, useLocation } from "react-router-dom";
 import { nav_links } from "../helpers/data";
 
 export default function NavComp() {
@@ -39,7 +33,7 @@ export default function NavComp() {
                 key={item.id}
                 to={item.href}
                 style={{
-                  color:currentPath === item.href ? "white" : "#afafaf",
+                  color: currentPath === item.href ? "white" : "#afafaf",
                   display: "flex",
                   alignItems: "center",
                   fontWeight: currentPath === item.href ? "bold" : "medium",
